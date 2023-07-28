@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student name</th>
+      <th>Student</th>
+      <th>College</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.student_name %></td>
+        <td><%= student.student_id %></td>
+        <td><%= student.college.name %></td> <!-- change -->
+        <td><%= link_to 'Show college', [@college] %> </td> <!-- change-->
+        <td><%= link_to 'Edit student', edit_college_student_path(@college, student) %></td><!-- change -->
+        <td><%= button_to 'Destroy student', [@college, student], method: :delete, data: { confirm: 'Are you sure?' } %></td> <!-- change -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_college_student_path(@college) %> <!-- change -->

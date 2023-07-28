@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @college.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @college.location %>
+</p>
+<h2>Student Details</h2>                              <!-- add-->
+<% for student in @college.students %>        <!-- add-->
+  <ul>                                        <!-- add-->
+    <li><%= student.student_name %></li>      <!-- add-->
+    <li><%= student.student_id %></li>        <!-- add-->
+  </ul>                                       <!-- add-->
+<% end %>
+<%= link_to 'Edit', edit_college_path(@college) %> |
+<%= link_to 'Add student', college_students_path(@college) %> <!-- add-->
+<%= link_to 'Back', colleges_path %>
